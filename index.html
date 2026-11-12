@@ -24,15 +24,18 @@
   --text:#fff; --muted:#c9c5bd;
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Jost',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  /* Imagen de fondo: subí tu foto del arpa con este nombre */
+  /* Imagen de fondo */
   --hero-image:url('https://raw.githubusercontent.com/sarakispy/zorzal/refs/heads/main/000.webp?token=GHSAT0AAAAAAEPV7R52C3RJD66XV44KERHK2XVWQ5Q');
+  --pos-desktop:center;
+  --pos-mobile:65% center; /* 0% izquierda, 50% centro, 100% derecha */
 }
 *,*::before,*::after{box-sizing:border-box;margin:0}
 html{height:100%}
 body{min-height:100%;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased}
-.bg{position:fixed;inset:0;z-index:-1;background:
+.bg{position:fixed;top:0;left:0;width:100%;height:100lvh;z-index:-1;background:
   radial-gradient(ellipse at 50% 30%,rgba(201,163,74,.14),transparent 60%),var(--bg)}
-.bg::before{content:"";position:absolute;inset:0;background:var(--hero-image) center/cover no-repeat}
+.bg::before{content:"";position:absolute;inset:0;background-image:var(--hero-image);background-size:cover;background-repeat:no-repeat;background-position:var(--pos-desktop,center)}
+@media (max-width:700px){.bg::before{background-position:var(--pos-mobile,center top)}}
 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,8,.78),rgba(8,8,8,.68) 45%,rgba(8,8,8,.92))}
 main{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;padding:clamp(2rem,6vh,4rem) 1.25rem 3rem;text-align:center}
 header{max-width:44rem}
@@ -128,7 +131,7 @@ footer em{display:block;margin-top:1rem;color:var(--muted);font-style:normal;fon
 <script>
 /* ===== CONFIGURACIÓN ===== */
 const STREAM_URL      = "https://giss.tv:667/hzal.mp3"; // https://... (MP3 o AAC)
-const WHATSAPP_NUMBER = "595985160699";                     // código de país + número, sin + ni espacios
+const WHATSAPP_NUMBER = "595985160699"; // código de país + número, sin + ni espacios
 const WHATSAPP_TEXT   = "Hola, les escribo desde La Hora del Zorzal";
 /* ========================= */
 
